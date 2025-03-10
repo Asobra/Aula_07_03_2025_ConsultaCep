@@ -8,6 +8,31 @@ import axios from 'axios';
 const App: React.FC = () => {
   const [cep, setCep] = useState('');
   
+
+//função para buscar os dados do CEP
+const fetchAddress = async () => {
+  setError('');
+  setAddress(null);
+
+  if (cep.length !== 8) {
+    setError('CEP inválido. Deve conter 8 dígitos.');
+    return;
+  }
+
+  try {
+    const response = await axios.get(`https://viacep.com.br/ws/${cep}/json/`);
+    if (response.data.erro) {
+      setError('CEP não encontrado.');
+    } else {
+      setAddress(response.data);
+    }
+  } catch (error) {
+    setError('Erro ao buscar CEP. Verifique sua conexão.');
+  }
+};
+
+
+
   return (
     <View style={styles.container}>
       <Text style={styles.title}>Consulta CEP</Text>
@@ -68,28 +93,6 @@ type Address = {
 const [address, setAddress] = useState<Address | null>(null);
 const [error, setError] = useState('');
 
-
-//função para buscar os dados do CEP
-const fetchAddress = async () => {
-  setError('');
-  setAddress(null);
-
-  if (cep.length !== 8) {
-    setError('CEP inválido. Deve conter 8 dígitos.');
-    return;
-  }
-
-  try {
-    const response = await axios.get(`https://viacep.com.br/ws/${cep}/json/`);
-    if (response.data.erro) {
-      setError('CEP não encontrado.');
-    } else {
-      setAddress(response.data);
-    }
-  } catch (error) {
-    setError('Erro ao buscar CEP. Verifique sua conexão.');
-  }
-};
 
 //botão para chamar a função fetchAddress
 
