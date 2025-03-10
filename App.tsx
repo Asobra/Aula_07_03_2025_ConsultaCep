@@ -82,6 +82,19 @@ const fetchAddress = async () => {
   }
 };
 
-//
+//botão para chamar a função fetchAddress
 
 <Button title="Buscar" onPress={fetchAddress} />
+
+//elementos para exibir os resultados
+
+{error ? <Text style={styles.error}>{error}</Text> : null}
+{address && (
+  <View style={styles.result}>
+    <Text>Logradouro: {address.logradouro}</Text>
+    <Text>Bairro: {address.bairro}</Text>
+    <Text>Cidade: {address.localidade} - {address.uf}</Text>
+  </View>
+)}
+
+
