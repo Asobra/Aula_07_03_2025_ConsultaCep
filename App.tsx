@@ -97,4 +97,16 @@ const fetchAddress = async () => {
   </View>
 )}
 
+//estilo para exibir os resultados
 
+const styles = StyleSheet.create({
+  ...styles,
+  error: {
+    color: 'red',
+    marginTop: 10,
+  },
+  result: {
+    marginTop: 20,
+    alignItems: 'center',
+  },
+});
