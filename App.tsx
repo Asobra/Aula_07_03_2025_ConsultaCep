@@ -43,3 +43,12 @@ const styles = StyleSheet.create({
     marginBottom: 10,
   }
 });
+
+type Address = {
+  logradouro: string; 
+  bairro: string;
+  localidade: string;
+  uf: string;
+}
+const [address, setAddress] = useState<Address | null>(null);
+const [error, setError] = useState('');
