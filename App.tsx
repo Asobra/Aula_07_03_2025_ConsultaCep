@@ -45,7 +45,7 @@ const styles = StyleSheet.create({
     borderWidth: 1,
     paddingHorizontal: 10,
     marginBottom: 10,
-  }
+  },
   error: {
     color: 'red',
     marginTop: 10,
@@ -53,8 +53,9 @@ const styles = StyleSheet.create({
   result: {
     marginTop: 20,
     alignItems: 'center',
-  }
+  },
 });
+
 
 //adicionando estados para armazenar o endereço e possíveis erros
 
