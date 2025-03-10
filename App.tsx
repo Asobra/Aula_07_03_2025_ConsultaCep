@@ -43,7 +43,8 @@ const fetchAddress = async () => {
         value={cep}
         onChangeText={setCep}
       />
-      <Button title="Buscar" onPress={() => {}} />
+      
+  <Button title="Buscar" onPress={fetchAddress} />
     </View>
   );
   
@@ -94,9 +95,7 @@ const [address, setAddress] = useState<Address | null>(null);
 const [error, setError] = useState('');
 
 
-//botão para chamar a função fetchAddress
 
-<Button title="Buscar" onPress={fetchAddress} />
 
 //elementos para exibir os resultados
 
