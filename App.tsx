@@ -3,6 +3,8 @@ import { StyleSheet, Text, View } from 'react-native';
 import React, { useState } from 'react';
 import { View, Text, TextInput, Button, StyleSheet } from 'react-native';
 
+//estrutura da interface
+
 const App: React.FC = () => {
   const [cep, setCep] = useState('');
   
@@ -21,6 +23,8 @@ const App: React.FC = () => {
   );
   
 };
+
+//estilos da interface
 
 const styles = StyleSheet.create({
   container: {
@@ -44,6 +48,8 @@ const styles = StyleSheet.create({
   }
 });
 
+//adicionando estados para armazenar o endereço e possíveis erros
+
 type Address = {
   logradouro: string; 
   bairro: string;
@@ -52,3 +58,26 @@ type Address = {
 }
 const [address, setAddress] = useState<Address | null>(null);
 const [error, setError] = useState('');
+
+
+//função para buscar os dados do CEP
+const fetchAddress = async () => {
+  setError('');
+  setAddress(null);
+
+  if (cep.length !== 8) {
+    setError('CEP inválido. Deve conter 8 dígitos.');
+    return;
+  }
+
+  try {
+    const response = await axios.get(`https://viacep.com.br/ws/${cep}/json/`);
+    if (response.data.erro) {
+      setError('CEP não encontrado.');
+    } else {
+      setAddress(response.data);
+    }
+  } catch (error) {
+    setError('Erro ao buscar CEP. Verifique sua conexão.');
+  }
+};
