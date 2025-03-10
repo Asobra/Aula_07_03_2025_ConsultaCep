@@ -53,7 +53,7 @@ const styles = StyleSheet.create({
   result: {
     marginTop: 20,
     alignItems: 'center',
-  },
+  }
 });
 
 //adicionando estados para armazenar o endereço e possíveis erros
@@ -106,6 +106,7 @@ const fetchAddress = async () => {
 )}
 
 //estilo para exibir os resultados
+//foi adicionado no objeto StyleSheet com o mesmo nome styles na linha 29
 
 /*
 const styles = StyleSheet.create({
