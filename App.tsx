@@ -81,3 +81,7 @@ const fetchAddress = async () => {
     setError('Erro ao buscar CEP. Verifique sua conexão.');
   }
 };
+
+//
+
+<Button title="Buscar" onPress={fetchAddress} />
