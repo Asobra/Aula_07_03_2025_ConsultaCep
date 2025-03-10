@@ -1,7 +1,7 @@
 import { StatusBar } from 'expo-status-bar';
 import { View, Text, TextInput, Button, StyleSheet } from 'react-native';
 import React, { useState } from 'react';
-
+import axios from 'axios';
 
 //estrutura da interface
 
@@ -46,6 +46,14 @@ const styles = StyleSheet.create({
     paddingHorizontal: 10,
     marginBottom: 10,
   }
+  error: {
+    color: 'red',
+    marginTop: 10,
+  },
+  result: {
+    marginTop: 20,
+    alignItems: 'center',
+  },
 });
 
 //adicionando estados para armazenar o endereço e possíveis erros
@@ -99,6 +107,7 @@ const fetchAddress = async () => {
 
 //estilo para exibir os resultados
 
+/*
 const styles = StyleSheet.create({
   ...styles,
   error: {
@@ -109,4 +118,5 @@ const styles = StyleSheet.create({
     marginTop: 20,
     alignItems: 'center',
   },
-});
+});*/
+
